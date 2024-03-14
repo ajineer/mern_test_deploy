@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useLogin } from "../hooks/useLogin"
 
 const Login = () => {
 
@@ -6,6 +7,7 @@ const Login = () => {
         email: '',
         password: ''
     })
+    const {login, error, isLoading} = useLogin()
     
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -15,23 +17,14 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const response = await fetch('/api/auth/signin', {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json'
-            }, body: JSON.stringify(form)
-        })
-        const json = await response.json()
-        if(response.ok){
-            console.log(json)
-        }else{
-            console.log(json)
-        }
+        await login(form.email, form.password)
     }
 
     return (
         
-        <form onSubmit={(e) => {handleSubmit(e)}} style={{display: 'flex', flexDirection: 'column'}}>
+        <form
+            style={{display: 'flex', flexDirection: 'column', width: '10rem'}} 
+            onSubmit={(e) => {handleSubmit(e)}}>
                 <h4>Login</h4>
                 <input name='email' onChange={(e) => handleChange(e)} value={form.email} type="email" required label="Email"/>
                 <input name='password' onChange={(e) => handleChange(e)} value={form.password} type="password" required label="Password"/>

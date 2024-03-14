@@ -1,7 +1,12 @@
-const Home = ({user}) => {
+import { useAuthContext } from "../hooks/useAuthContext"
+
+const Home = () => {
+
+    const {user} = useAuthContext()
+
     return (
         <div>
-            {user.username}
+            Welcome user!
         </div>
     )   
 }
