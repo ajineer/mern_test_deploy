@@ -3,7 +3,6 @@ import { useState } from "react"
 const Signup = () => {
 
     const [form, setForm] = useState({
-        username: '',
         email: '',
         password: ''
     })
@@ -29,7 +28,6 @@ const Signup = () => {
         
         <form onSubmit={(e) => {handleSubmit(e)}} style={{display: 'flex', flexDirection: 'column'}}>
                 <h4>Signup</h4>
-                <input onChange={(e) => setForm({username: e.target.value})} value={form.username} type="text" required label="Username"/> 
                 <input onChange={(e) => setForm({email: e.target.value})} value={form.email} type="email" required label="Email"/>
                 <input onChange={(e) => setForm({password: e.target.value})} value={form.password} type="password" required label="Password"/>
                 <input type='submit' value='sign up'/>
