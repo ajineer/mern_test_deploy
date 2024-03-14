@@ -22,12 +22,12 @@ const __dirname = path.resolve();
 
 const app = express();
 
-const corsOptions = {
-  origin: "http://localhost:5173",
-};
+// const corsOptions = {
+//   origin: "http://localhost:5173",
+// };
 
 app.use(express.json());
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Set a more permissive referrer policy
 app.use((req, res, next) => {
