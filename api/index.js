@@ -28,6 +28,13 @@ const corsOptions = {
 
 app.use(express.json());
 app.use(cors(corsOptions));
+
+// Set a more permissive referrer policy
+app.use((req, res, next) => {
+  res.setHeader("Referrer-Policy", "no-referrer-when-downgrade");
+  next();
+});
+
 app.use(cookieParser());
 
 app.listen(process.env.PORT, () => {
