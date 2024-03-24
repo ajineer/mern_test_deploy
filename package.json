@@ -1,10 +1,9 @@
 {
-  "name": "backend",
+  "name": "mern_test_deploy",
   "version": "1.0.0",
-  "description": "",
+  "description": "tech notes mern project",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server",
     "dev": "nodemon server"
   },
@@ -18,9 +17,7 @@
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.1",
-    "express-async-errors": "^3.1.1",
-    "express-rate-limit": "^7.2.0",
-    "jsonwebtoken": "^9.0.2",
+    "express-async-handler": "^1.2.0",
     "mongoose": "^8.2.3",
     "mongoose-sequence": "^6.0.1",
     "uuid": "^9.0.1"
